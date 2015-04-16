@@ -3,32 +3,64 @@ var arrayJem = ["Jem", "62347", "63500", 4];
 var arrayBoo = ["Boo", "11435", "54000", 3];
 var arrayScout = ["Scout", "6243", "74750", 5];
 
-var arrayAtticusSTI = workHorse(arrayAtticus, arrayAtticusSTI);
-var arrayJemSTI = workHorse(arrayJem, arrayJemSTI);
-var arrayBooSTI = workHorse(arrayBoo, arrayBooSTI);
-var arrayScoutSTI = workHorse(arrayScout, arrayScoutSTI);
+var funStuff = [arrayAtticus, arrayJem, arrayBoo, arrayScout];
 
-function workHorse(array){
-	var arraySTI = addName(array);
-	arraySTI = stiPercent(array, arraySTI);
-	arraySTI = basePlusSTI(array, arraySTI);
-	arraySTI = bonusInDollars(array, arraySTI);
-	return arraySTI;
+// Initialize global index var.
+var i = 0;
+
+// Loop through funstuff and create new variables for output:
+function funLooper(array){
+	for(i; i < array.length; i++){
+		var name = array[i][0];
+		eval("var array"+name+"STI = workHorse(array[i],name);");
+		console.log(eval("var array"+name+"STI"));
+
+		// array[i] = eval("var array"+name+"STI = x");
+		// var x = workHorse(array[i]);
+		// console.log(x);
+		// eval("var array"+name+"STI = x");
+	}
+	// console.log(array);
+	return ;
 }
 
-var funStuff = [arrayAtticus, arrayJem, arrayBoo, arrayScout];
-var funStuffSTI = [arrayAtticusSTI, arrayJemSTI, arrayBooSTI, arrayScoutSTI];
+// var funStuffSTI = [arrayAtticusSTI, arrayJemSTI, arrayBooSTI, arrayScoutSTI];
 
-var i;
+// var arrayAtticusSTI = workHorse(arrayAtticus, arrayAtticusSTI);
+// var arrayJemSTI = workHorse(arrayJem, arrayJemSTI);
+// var arrayBooSTI = workHorse(arrayBoo, arrayBooSTI);
+// var arrayScoutSTI = workHorse(arrayScout, arrayScoutSTI);
+
+var funStuffSTI = workHorse(funStuff);
+
+function workHorse(array){
+	//Make new array with name.
+	var outputArray = [array[0], undefined, undefined, undefined];
+	array = stiPercent(array, outputArray);
+	array = basePlusSTI(array, outputArray);
+	array = bonusInDollars(array, outputArray);
+	
+	//return arraySTI;			
+	// var arraySTI = addName(array);
+	// array = [name, undefined, undefined, undefined];
+	
+}
+
+function putArraysInOne(a{
+	outputArray = [];
+	//Name it array<name>STI
+	eval("var array"+array[0]+"STI = array;");
+}
+
 for (i=0; i < 4; i++) {
 	var x = document.getElementById("sweetId");
           x.innerHTML += funStuff[i]+"\t"+funStuffSTI[i]+"<br><br>";
 }
 
-function addName(oldArray) {
-	newArray = [oldArray[0], undefined, undefined, undefined];
-	return newArray;
-}
+// function addName(oldArray) {
+// 	newArray = [oldArray[0], undefined, undefined, undefined];
+// 	return newArray;
+// }
 
 function stiPercent (oldArray, newArray) {
 	var rating = oldArray[3];
