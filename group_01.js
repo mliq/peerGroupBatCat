@@ -3,58 +3,27 @@ var arrayJem = ["Jem", "62347", "63500", 4];
 var arrayBoo = ["Boo", "11435", "54000", 3];
 var arrayScout = ["Scout", "6243", "74750", 5];
 
-var arrayAtticusSTI = addName(arrayAtticus);
-arrayAtticusSTI = stiPercent(arrayAtticus, arrayAtticusSTI) ;
-arrayAtticusSTI = basePlusSTI(arrayAtticus, arrayAtticusSTI);
-arrayAtticusSTI = bonusInDollars(arrayAtticus, arrayAtticusSTI);
+var arrayAtticusSTI = workHorse(arrayAtticus, arrayAtticusSTI);
+var arrayJemSTI = workHorse(arrayJem, arrayJemSTI);
+var arrayBooSTI = workHorse(arrayBoo, arrayBooSTI);
+var arrayScoutSTI = workHorse(arrayScout, arrayScoutSTI);
 
-var arrayJemSTI = addName(arrayJem);
-arrayJemSTI = stiPercent(arrayJem, arrayJemSTI) ;
-arrayJemSTI = basePlusSTI(arrayJem, arrayJemSTI);
-arrayJemSTI = bonusInDollars(arrayJem, arrayJemSTI);
-
-var arrayBooSTI = addName(arrayBoo);
-arrayBooSTI = stiPercent(arrayBoo, arrayBooSTI) ;
-arrayBooSTI = basePlusSTI(arrayBoo, arrayBooSTI);
-arrayBooSTI = bonusInDollars(arrayBoo, arrayBooSTI);
-
-var arrayScoutSTI = addName(arrayScout);
-arrayScoutSTI = stiPercent(arrayScout, arrayScoutSTI) ;
-arrayScoutSTI = basePlusSTI(arrayScout, arrayScoutSTI);
-arrayScoutSTI = bonusInDollars(arrayScout, arrayScoutSTI);
-
-console.log(arrayAtticus);
-console.log(arrayAtticusSTI);
-
-console.log(arrayJem);
-console.log(arrayJemSTI);
-
-console.log(arrayBoo);
-console.log(arrayBooSTI);
-
-console.log(arrayScout);
-console.log(arrayScoutSTI);
-
+function workHorse(array){
+	var arraySTI = addName(array);
+	arraySTI = stiPercent(array, arraySTI);
+	arraySTI = basePlusSTI(array, arraySTI);
+	arraySTI = bonusInDollars(array, arraySTI);
+	return arraySTI;
+}
 
 var funStuff = [arrayAtticus, arrayJem, arrayBoo, arrayScout];
 var funStuffSTI = [arrayAtticusSTI, arrayJemSTI, arrayBooSTI, arrayScoutSTI];
 
 var i;
 for (i=0; i < 4; i++) {
-
-
 	var x = document.getElementById("sweetId");
-          x.innerHTML += funStuff[i]+"\t"+funStuffSTI[i]+"<br>";
+          x.innerHTML += funStuff[i]+"\t"+funStuffSTI[i]+"<br><br>";
 }
-
-
-
-
-
-
-
-
-
 
 function addName(oldArray) {
 	newArray = [oldArray[0], undefined, undefined, undefined];
@@ -101,9 +70,5 @@ function bonusInDollars(oldArray, newArray) {
 	newArray[3] = Math.round( oldArray[2] * newArray[1] );
 	return newArray;
 }
-
-
-
-
 
 
