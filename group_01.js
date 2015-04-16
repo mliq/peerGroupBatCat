@@ -2,11 +2,7 @@ var arrayAtticus = ["Atticus", "2405", "47000", 3];
 var arrayJem = ["Jem", "62347", "63500", 4];
 var arrayBoo = ["Boo", "11435", "54000", 3];
 var arrayScout = ["Scout", "6243", "74750", 5];
-
-var arrayAtticusSTI = workHorse(arrayAtticus, arrayAtticusSTI);
-var arrayJemSTI = workHorse(arrayJem, arrayJemSTI);
-var arrayBooSTI = workHorse(arrayBoo, arrayBooSTI);
-var arrayScoutSTI = workHorse(arrayScout, arrayScoutSTI);
+var i;
 
 function workHorse(array){
 	var arraySTI = addName(array);
@@ -17,9 +13,18 @@ function workHorse(array){
 }
 
 var funStuff = [arrayAtticus, arrayJem, arrayBoo, arrayScout];
-var funStuffSTI = [arrayAtticusSTI, arrayJemSTI, arrayBooSTI, arrayScoutSTI];
 
-var i;
+function multiArrayWorkHorse(bigArray){
+	var outputArray = [];
+
+	for(i = 0; i < bigArray.length; i++){
+		outputArray[i] = workHorse(bigArray[i], outputArray[i]);
+	}
+	return outputArray;
+}
+
+var funStuffSTI = multiArrayWorkHorse(funStuff);
+
 for (i=0; i < 4; i++) {
 	var x = document.getElementById("sweetId");
           x.innerHTML += funStuff[i]+"\t"+funStuffSTI[i]+"<br><br>";
