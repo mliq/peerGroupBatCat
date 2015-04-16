@@ -14,13 +14,13 @@ function workHorse(array){
 
 var funStuff = [arrayAtticus, arrayJem, arrayBoo, arrayScout];
 
-function multiArrayWorkHorse(bigArray){
-	var outputArray = [];
+function multiArrayWorkHorse(employeesArray){
+	var STIArray = [];
 
-	for(i = 0; i < bigArray.length; i++){
-		outputArray[i] = workHorse(bigArray[i], outputArray[i]);
+	for(i = 0; i < employeesArray.length; i++){
+		STIArray[i] = workHorse(employeesArray[i], STIArray[i]);
 	}
-	return outputArray;
+	return STIArray;
 }
 
 var funStuffSTI = multiArrayWorkHorse(funStuff);
